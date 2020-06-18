@@ -1,0 +1,10 @@
+{
+	"info": {
+		"_postman_id": "276cabc8-7316-461d-98ef-d090d1e7d36d",
+		"name": "training",
+		"description": "Microservice for training.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [],
+	"protocolProfileBehavior": {}
+}
