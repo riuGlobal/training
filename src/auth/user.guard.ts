@@ -1,17 +1,19 @@
-import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
+import { Injectable, CanActivate, ExecutionContext, ForbiddenException } from '@nestjs/common';
+import { Request } from 'express';
 
 @Injectable()
 export class UserGuard implements CanActivate {
-  canActivate(
+  canActivate (
     context: ExecutionContext
-  ): boolean | Promise<boolean> {
+  ): boolean {
     const request = context.switchToHttp().getRequest<Request>();
-    return this.validateRequest(request);
+    if (!this.validateRequest(request)) { throw new ForbiddenException()}
+    return true;
   }
 
-  async validateRequest (
+  validateRequest (
     request: Request
-  ): Promise<boolean> {
-    return request.headers.has('uid');
+  ): boolean {
+    return !!request.get('uid');
   }
 }
