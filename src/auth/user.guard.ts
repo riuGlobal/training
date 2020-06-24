@@ -7,7 +7,7 @@ export class UserGuard implements CanActivate {
     context: ExecutionContext
   ): boolean {
     const request = context.switchToHttp().getRequest<Request>();
-    if (!this.validateRequest(request)) { throw new ForbiddenException()}
+    if (!this.validateRequest(request)) { throw new ForbiddenException(); }
     return true;
   }
 
