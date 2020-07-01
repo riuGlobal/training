@@ -16,11 +16,11 @@ export class TraineesService {
     return (await this.traineeRepository.insert({ uid })).identifiers.length > 0;
   }
 
-  async update (uid: string): Promise<boolean> {
-    return !!(await this.traineeRepository.save({ uid })).uid;
+  async update (uid: string, trainee: Trainee): Promise<boolean> {
+    return !!(await this.traineeRepository.update({ uid })).uid;
   }
 
-  async delete (uid: string): Promise<boolean> {
+  async destroy (uid: string): Promise<boolean> {
     return (await this.traineeRepository.delete(uid)).affected > 0;
   }
 }
