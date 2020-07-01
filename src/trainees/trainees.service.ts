@@ -8,15 +8,19 @@ export class TraineesService {
       private traineeRepository: Repository<Trainee>
   ) {}
 
-  async index (uid: string): Promise<Trainee> {
-    return await this.traineeRepository.findOne(uid);
+  async show (uid: string): Promise<Trainee> {
+    return await this.traineeRepository.findOne({ uid });
   }
 
-  //store
-    //Create many or just one given array
+  async store (uid: string): Promise<boolean> {
+    return (await this.traineeRepository.insert({ uid })).identifiers.length > 0;
+  }
 
-  //update
-    // update just one given entire thing or partialy with patch
-  //delete
-    //delete just one
+  async update (uid: string): Promise<boolean> {
+    return !!(await this.traineeRepository.save({ uid })).uid;
+  }
+
+  async delete (uid: string): Promise<boolean> {
+    return (await this.traineeRepository.delete(uid)).affected > 0;
+  }
 }
