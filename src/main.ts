@@ -7,8 +7,8 @@ import { UidSecurity } from './validators/repository.validator';
 async function bootstrap () {
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('training');
-  app.useGlobalFilters(new HttpExceptionFilter());
   app.useGlobalPipes(new UidSecurity());
+  app.useGlobalFilters(new HttpExceptionFilter());
   app.useGlobalInterceptors(new TransformInterceptor());
   await app.listen(3000);
 }
