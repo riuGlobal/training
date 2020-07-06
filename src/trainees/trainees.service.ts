@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { Trainee } from './trainee.entity';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -11,15 +11,11 @@ export class TraineesService {
   ) {}
 
   async show (uid: string): Promise<Trainee> {
-    try {
-      return await this.traineeRepository.findOneOrFail({ uid });
-    } catch (error) {
-      throw new NotFoundException('No trainee found');
-    }
+    return await this.traineeRepository.findOneOrFail({ uid });
   }
 
-  async store (uid: string): Promise<boolean> {
-    return (await this.traineeRepository.insert({ uid })).identifiers.length > 0;
+  async store (trainee: Trainee): Promise<boolean> {
+    return (await this.traineeRepository.insert(trainee)).identifiers.length > 0;
   }
 
   async update (uid: string, trainee: Trainee): Promise<boolean> {
@@ -27,6 +23,12 @@ export class TraineesService {
   }
 
   async destroy (uid: string): Promise<boolean> {
-    return (await this.traineeRepository.softDelete(uid)).affected > 0;
+    const affected = (await this.traineeRepository.softDelete(uid)).affected;
+    return affected ? affected > 0 : true;
+  }
+
+  async reactivate (uid: string): Promise<boolean> {
+    const { raw } = await this.traineeRepository.restore(uid);
+    return raw?.affected;
   }
 }
