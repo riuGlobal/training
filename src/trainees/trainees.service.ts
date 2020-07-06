@@ -23,12 +23,10 @@ export class TraineesService {
   }
 
   async destroy (uid: string): Promise<boolean> {
-    const affected = (await this.traineeRepository.softDelete(uid)).affected;
-    return affected ? affected > 0 : true;
+    return !!(await this.traineeRepository.softDelete(uid)).raw.affectedRows;
   }
 
   async reactivate (uid: string): Promise<boolean> {
-    const { raw } = await this.traineeRepository.restore(uid);
-    return raw?.affected;
+    return !!(await this.traineeRepository.restore(uid)).raw.affectedRows;
   }
 }

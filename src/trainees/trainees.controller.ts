@@ -31,7 +31,7 @@ export class TraineesController {
     return await this.traineeService.destroy(uid);
   }
 
-  @Patch()
+  @Patch('reactivate')
   async reactivate (@Header('uid', new InactiveRecordExists(Trainee)) uid: string): Promise<boolean> {
     return await this.traineeService.reactivate(uid);
   }

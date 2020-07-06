@@ -15,8 +15,8 @@ const existanceInfo = async <E>(entity: any, id: string | number): Promise<Exist
   await queryRunner.rollbackTransaction();
   await queryRunner.release();
 
-  const exists = !!record || raw?.affectedRows;
-  const isSoftDeleted = !record && !!raw?.affectedRows;
+  const exists = !!record || raw.affectedRows;
+  const isSoftDeleted = !record && !!raw.affectedRows;
 
   return { exists, isSoftDeleted };
 };
@@ -81,7 +81,7 @@ export class RecordDoesNotExist<E> implements PipeTransform<number | string, Pro
   async transform (id: number | string, { metatype }: ArgumentMetadata): Promise<string | number> {
     const { exists, isSoftDeleted } = await existanceInfo<E>(this.entity, id);
     if (exists) {
-      const message = 'Record already exists. ' +
+      const message = 'Validation Failed. Record exists. ' +
         (isSoftDeleted ? 'Is inactive' : 'Is active');
       throw new BadRequestException(message);
     }
@@ -97,19 +97,13 @@ export class InactiveRecordExists<E> implements PipeTransform<number | string, P
   ) {}
 
   async transform (id: number | string, { metatype }: ArgumentMetadata): Promise<string | number> {
-    const repository = await getRepository<E>(this.entity);
-    const queryRunner = repository.manager.connection.createQueryRunner();
-    await queryRunner.startTransaction();
-    const record: E = await queryRunner.manager.findOne(this.entity, id);
-    const { raw } = await queryRunner.manager.restore(this.entity, id);
-    await queryRunner.rollbackTransaction();
-    await queryRunner.release();
-    // console.log("==", result.raw?.affectedRows);
-    if (raw?.affectedRows && record) {
-      throw new BadRequestException('Validation failed. Record already exists. Is inactive though.');
-    } else if (!raw?.affectedRows && !record) {
-      throw new BadRequestException('Validation failed. Active record already exists.');
+    const { exists, isSoftDeleted } = await existanceInfo<E>(this.entity, id);
+    if (!exists) {
+      throw new BadRequestException('Validation Failed. Record doesn\'t exist ');
+    } else if (!isSoftDeleted) {
+      throw new BadRequestException('Validation Failed. Record is Active ');
     }
+
     return id;
   }
 }
