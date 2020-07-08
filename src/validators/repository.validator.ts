@@ -75,7 +75,6 @@ export class ActiveRecordExists<E> implements PipeTransform<number | string, Pro
 
 @Injectable()
 export class RecordDoesNotExist<E> implements PipeTransform<number | string, Promise<string | number>> {
-
   constructor (
     private entity: any
   ) {}
@@ -93,7 +92,6 @@ export class RecordDoesNotExist<E> implements PipeTransform<number | string, Pro
 
 @Injectable()
 export class InactiveRecordExists<E> implements PipeTransform<number | string, Promise<string | number>> {
-
   constructor (
     private entity: any
   ) {}
