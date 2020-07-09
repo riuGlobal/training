@@ -24,38 +24,6 @@ const existanceInfo = async <E>(entity: any, id: string | number): Promise<Exist
 };
 
 @Injectable()
-export class RecordExist<E> implements PipeTransform<number | string, Promise<string | number>> {
-  constructor (
-    private entity: any
-  ) {}
-
-  async transform (id: number | string, { metatype }: ArgumentMetadata): Promise<string | number> {
-    const { exists, isSoftDeleted } = await existanceInfo<E>(this.entity, id);
-
-    // if (exists )
-
-    // const record: E = await getRepository<E>(this.entity).findOne(id);
-    // if (!record || !id) {
-    //   throw new BadRequestException('Validation failed. Record doesn\'t exist');
-    // }
-    // const repository = await getRepository<E>(this.entity);
-    // const queryRunner = repository.manager.connection.createQueryRunner();
-    // await queryRunner.startTransaction();
-    // const record: E = await queryRunner.manager.findOne(this.entity, id);
-    // const { raw } = await queryRunner.manager.restore(this.entity, id);
-    // await queryRunner.rollbackTransaction();
-    // await queryRunner.release();
-    // // console.log("==", result.raw?.affectedRows);
-    // if (raw?.affectedRows && record) {
-    //   throw new BadRequestException('Validation failed. Record already exists. Is inactive though.');
-    // } else if (!raw?.affectedRows && !record) {
-    //   throw new BadRequestException('Validation failed. Active record already exists.');
-    // }
-    return id;
-  }
-}
-
-@Injectable()
 export class ActiveRecordExists<E> implements PipeTransform<number | string, Promise<string | number>> {
   constructor (
     private entity: any
