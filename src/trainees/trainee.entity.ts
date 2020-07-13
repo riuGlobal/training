@@ -1,5 +1,5 @@
 import { Entity, PrimaryColumn, CreateDateColumn, UpdateDateColumn, DeleteDateColumn } from 'typeorm';
-@Entity()
+@Entity('trainees')
 export class Trainee {
   @PrimaryColumn()
   uid: string;
@@ -11,7 +11,6 @@ export class Trainee {
   updatedAt: Date
 
   @DeleteDateColumn({
-    type: 'datetime',
     default: null
   })
   deletedAt: Date

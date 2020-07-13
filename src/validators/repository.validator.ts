@@ -78,9 +78,12 @@ export class InactiveRecordExists<E> implements PipeTransform<number | string, P
 
 @Injectable()
 export class UidSecurity implements PipeTransform<any, any> {
-  async transform (identifiable : Record<string, unknown>): Promise<any> {
-    if (identifiable.uid) {
-      throw new BadRequestException('Security issue: Do not send uid in body');
+  async transform (identifiable : Record<string, unknown>, metadata: ArgumentMetadata): Promise<any> {
+    if (
+        identifiable?.uid ||
+        (metadata.type !== 'custom' && metadata.data === 'uid')
+    ) {
+      throw new BadRequestException('Security issue: Do not take uid in body, as query parameter or as path parameter. Only in Header ');
     }
     return identifiable;
   }
