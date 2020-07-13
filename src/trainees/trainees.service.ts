@@ -23,10 +23,10 @@ export class TraineesService {
   }
 
   async destroy (uid: string): Promise<boolean> {
-    return !!(await this.traineeRepository.softDelete(uid)).raw.affectedRows;
+    return !!(await this.traineeRepository.softDelete(uid)).affected;
   }
 
   async reactivate (uid: string): Promise<boolean> {
-    return !!(await this.traineeRepository.restore(uid)).raw.affectedRows;
+    return !!(await this.traineeRepository.restore(uid)).affected;
   }
 }

@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Param, Delete, Query, Body, Put } from '@nestjs/common';
+import { Controller, Get, Post, Param, Delete, Query, Body, Put, ParseArrayPipe } from '@nestjs/common';
 import { ExercisesService } from './exercises.service';
 import { Exercise } from './exercise.entity';
-import { StringToNumbersArrayPipe } from '../pipes/stringToArray.pipe';
+import { RecordExists } from 'src/validators/repository.validator';
 
 @Controller('exercises')
 export class ExercisesController {
@@ -10,17 +10,17 @@ export class ExercisesController {
   ) {}
 
   @Get()
-  async index (@Query('id', new StringToNumbersArrayPipe()) ids: number[], @Query('designation') designation: string): Promise<Exercise[]> {
+  async index (@Query('ids', new ParseArrayPipe({ items: Number, separator: ',', optional: true })) ids: number[], @Query('designation') designation: string): Promise<Exercise[]> {
     return await this.exerciseService.index(ids, designation);
   }
 
   @Post()
-  async store (@Body() exercise: Exercise[]) : Promise<Exercise[]> {
+  async store (@Body(new ParseArrayPipe({ items: Exercise })) exercise: Exercise[]) : Promise<Exercise[]> {
     return await this.exerciseService.store(exercise);
   }
 
   @Put(':id')
-  async update (@Param(':id') id: number, @Body() exercise: Exercise): Promise<boolean> {
+  async update (@Param('id', new RecordExists(Exercise)) id: number, @Body() exercise: Exercise): Promise<boolean> {
     return await this.exerciseService.update(id, exercise);
   }
 

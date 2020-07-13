@@ -22,7 +22,7 @@ export class ExercisesService {
   }
 
   async update (id: number, exercise: Exercise): Promise<boolean> {
-    return (await this.exerciseRepository.update(id, exercise)).affected > 0;
+    return !!(await this.exerciseRepository.update(id, exercise)).affected;
   }
 
   async delete (id: number): Promise<boolean> {
