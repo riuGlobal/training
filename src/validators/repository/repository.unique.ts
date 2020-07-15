@@ -6,7 +6,6 @@ import {
   ValidationArguments
 } from 'class-validator';
 import { getRepository } from 'typeorm';
-import { access } from 'fs';
 
 @ValidatorConstraint({ async: true })
 export class IsUniqueIndexConstraint<E> implements ValidatorConstraintInterface {
