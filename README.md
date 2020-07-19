@@ -3,6 +3,12 @@
 
 Microservice for training
 
+## Instruction
+
+npm install 
+
+npm run start
+
 ## Running the app
 
 ```bash
