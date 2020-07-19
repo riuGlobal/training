@@ -7,7 +7,14 @@ export class Workout {
   @PrimaryGeneratedColumn()
   id: number  
 
-  @Column()
+  @Column({
+    type:  "date"
+  })
+  date: Date
+
+  @Column({
+    type: "time"
+  })
   time: Date
 
   @Column({
