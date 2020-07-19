@@ -27,10 +27,8 @@ export class WorkoutsService {
         exerciseByWorkout.workoutId = workout.id;
         workout.exerciseByWorkout.push(exerciseByWorkout);
       });
-      console.log('HERE ===>', workout);
       workout = { ...workoutDto, ...workout };
       wo.push(workout);
-      // this.workoutRepository.save(workout);
     });
 
     return (await this.workoutRepository.save(wo));
