@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinTable } from 'typeorm';
 import { Exercise } from 'src/exercises/exercise.entity';
 import { Workout } from 'src/workouts/workout.entity';
 
@@ -11,12 +11,13 @@ export class ExerciseByWorkout {
   exerciseId: number;
 
   @Column()
-  categoryId: number;
+  workoutId: number;
 
   @Column()
   order: number;
 
-  @ManyToOne(type => Exercise, exercise => exercise.exerciseByWorkout)
+  @ManyToOne(type => Exercise, exercise => exercise.exerciseByWorkout, { eager: true })
+  @JoinTable()
   exercise: Exercise;
 
   @ManyToOne(type => Workout, workout => workout.exerciseByWorkout)

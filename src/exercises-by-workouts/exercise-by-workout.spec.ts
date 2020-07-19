@@ -1,4 +1,4 @@
-import { ExerciseByWorkout } from './exercise-by-workout';
+import { ExerciseByWorkout } from './exercise-by-workout.entity';
 
 describe('ExerciseByWorkout', () => {
   it('should be defined', () => {
