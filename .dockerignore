@@ -1,0 +1,22 @@
+# NPM dependencies 
+node_modules
+
+# Git
+.git
+.gitignore
+
+# Docker configuration
+Dockerfile
+
+# Other
+.idea
+.vscode
+.env 
+
+# Typescript 
+dist
+
+README.md
+
+# test
+test
