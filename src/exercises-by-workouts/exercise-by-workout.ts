@@ -1,25 +1,24 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
-import { Exercise } from "src/exercises/exercise.entity";
-import { Workout } from "src/workouts/workout.entity";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Exercise } from 'src/exercises/exercise.entity';
+import { Workout } from 'src/workouts/workout.entity';
 
-@Entity()
+@Entity('exercise_by_workout')
 export class ExerciseByWorkout {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  exerciseId: number
-  
-  @Column()
-  categoryId: number
+  exerciseId: number;
 
   @Column()
-  public order: number
+  categoryId: number;
+
+  @Column()
+  order: number;
 
   @ManyToOne(type => Exercise, exercise => exercise.exerciseByWorkout)
-  public exercise: Exercise
+  exercise: Exercise;
 
   @ManyToOne(type => Workout, workout => workout.exerciseByWorkout)
-  public workout: Workout
-
+  workout: Workout;
 }

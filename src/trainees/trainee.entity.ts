@@ -5,13 +5,13 @@ export class Trainee {
   uid: string;
 
   @CreateDateColumn()
-  createdAt: Date
+  createdAt: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date
+  updatedAt: Date;
 
   @DeleteDateColumn({
     default: null
   })
-  deletedAt: Date
+  deletedAt: Date;
 }
