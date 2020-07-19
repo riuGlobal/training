@@ -8,10 +8,9 @@ export class WorkoutsService {
   constructor (
     @InjectRepository(Workout)
     private workoutRepository: Repository<Workout>
-  ){}
+  ) {}
 
-  async show(uid: string): Promise<Workout> {
+  async show (uid: string): Promise<Workout> {
     return await this.workoutRepository.findOneOrFail({ uid });
   }
-
 }

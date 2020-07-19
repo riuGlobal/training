@@ -1,7 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn } from 'typeorm';
 import { PeriodOfTimeOfDay } from '../enums/enum.period-of-time-of-day';
-import { ExerciseByWorkout } from "src/exercises-by-workouts/exercise-by-workout";
-import { Trainee } from "src/trainees/trainee.entity";
+import { ExerciseByWorkout } from 'src/exercises-by-workouts/exercise-by-workout';
+import { Trainee } from 'src/trainees/trainee.entity';
 
 @Entity('workouts')
 export class Workout {
@@ -12,17 +12,17 @@ export class Workout {
   uid: string;
 
   @Column({
-    type:  "date"
+    type: 'date'
   })
   date: Date;
 
   @Column({
-    type: "time"
+    type: 'time'
   })
   time: Date;
 
   @Column({
-    type: "enum",
+    type: 'enum',
     enum: PeriodOfTimeOfDay
   })
   periodOfTimeOfDay: PeriodOfTimeOfDay;
@@ -37,6 +37,6 @@ export class Workout {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToMany( type => ExerciseByWorkout, exerciseByWorkout => exerciseByWorkout.workout)
+  @OneToMany(type => ExerciseByWorkout, exerciseByWorkout => exerciseByWorkout.workout)
   exerciseByWorkout: ExerciseByWorkout[];
 }
