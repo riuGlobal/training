@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Workout } from './workout.entity';
 import { Repository } from 'typeorm';
 import { ExerciseByWorkout } from 'src/exercises-by-workouts/exercise-by-workout.entity';
+import { Trainee } from 'src/trainees/trainee.entity';
 
 @Injectable()
 export class WorkoutsService {
@@ -11,11 +12,11 @@ export class WorkoutsService {
     private workoutRepository: Repository<Workout>
   ) {}
 
-  async show (uid: string): Promise<Workout[]> {
-    return await this.workoutRepository.find({ uid });
+  async show (trainee: Trainee): Promise<Workout[]> {
+    return await this.workoutRepository.find({ trainee });
   }
 
-  async store (workouts: any[]): Promise<Workout[]> {
+  async store (trainee: Trainee, workouts: any[]): Promise<Workout[]> {
     const wo = [];
     await workouts.forEach(async workoutDto => {
       let workout = new Workout();
@@ -25,9 +26,12 @@ export class WorkoutsService {
         exerciseByWorkout.exerciseId = exercise.id;
         exerciseByWorkout.order = index;
         exerciseByWorkout.workoutId = workout.id;
+        exerciseByWorkout.reps = exercise.reps;
+        exerciseByWorkout.time = exercise.time;
         workout.exerciseByWorkout.push(exerciseByWorkout);
       });
-      workout = { ...workoutDto, ...workout };
+
+      workout = { ...workoutDto, ...workout, trainee };
       wo.push(workout);
     });
 

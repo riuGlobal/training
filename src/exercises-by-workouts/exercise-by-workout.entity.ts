@@ -16,6 +16,13 @@ export class ExerciseByWorkout {
   @Column()
   order: number;
 
+  @Column()
+  reps: number
+
+  // Time of rep in seconds
+  @Column()
+  time: number
+
   @ManyToOne(type => Exercise, exercise => exercise.exerciseByWorkout, { eager: true })
   @JoinTable()
   exercise: Exercise;

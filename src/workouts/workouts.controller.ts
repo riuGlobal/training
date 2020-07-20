@@ -2,6 +2,8 @@ import { Controller, Get, Post, Body, Put, Delete, Param } from '@nestjs/common'
 import { WorkoutsService } from './workouts.service';
 import { Workout } from './workout.entity';
 import { Header } from 'src/decorators/global.decorator';
+import { RecordPipe } from 'src/validators/repository.validator';
+import { Trainee } from 'src/trainees/trainee.entity';
 
 @Controller('workouts')
 export class WorkoutsController {
@@ -10,14 +12,13 @@ export class WorkoutsController {
   ) {}
 
   @Get()
-  async show (@Header('uid') uid: string): Promise<Workout[]> {
-    return this.workoutService.show(uid);
+  async show (@Header('uid', new RecordPipe<Trainee>(Trainee)) trainee: Trainee): Promise<Workout[]> {
+    return this.workoutService.show(trainee);
   }
 
   @Post()
-  async store (@Header('uid') uid: string, @Body() workouts: Workout[]): Promise<Workout[]> {
-    return await this.workoutService.store(workouts
-      .map(workout => { return { ...workout, uid }; }));
+  async store (@Header('uid', new RecordPipe<Trainee>(Trainee)) trainee: Trainee, @Body() workouts: Workout[]): Promise<Workout[]> {
+    return await this.workoutService.store(trainee, workouts);
   }
 
   @Put(':id')

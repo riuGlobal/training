@@ -35,6 +35,21 @@ const existanceInfo = async <E>(entity: any, id: string | number): Promise<Exist
 };
 
 @Injectable()
+export class RecordPipe<E> implements PipeTransform<number | string, Promise<E>> {
+  constructor (
+    private entity: any
+  ) {}
+
+  async transform (id: number | string, { metatype }: ArgumentMetadata): Promise<E> {
+    const repository = await getRepository<E>(this.entity);
+    const queryRunner = repository.manager.connection.createQueryRunner();
+    await queryRunner.startTransaction();
+    const record: E = await queryRunner.manager.findOne(this.entity, id);
+    return record;
+  }
+}
+
+@Injectable()
 export class ActiveRecordExists<E> implements PipeTransform<number | string, Promise<string | number>> {
   constructor (
     private entity: any
