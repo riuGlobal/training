@@ -28,7 +28,6 @@ export class Workout {
   periodOfTimeOfDay: PeriodOfTimeOfDay;
 
   @ManyToOne(type => Trainee)
-  @JoinColumn()
   trainee: Trainee;
 
   @CreateDateColumn()
@@ -38,6 +37,5 @@ export class Workout {
   updatedAt: Date;
 
   @OneToMany(type => ExerciseByWorkout, exerciseByWorkout => exerciseByWorkout.workout, { eager: true, cascade: true })
-  @JoinTable()
   exerciseByWorkout: ExerciseByWorkout[];
 }

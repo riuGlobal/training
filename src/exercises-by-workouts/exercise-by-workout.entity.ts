@@ -24,9 +24,8 @@ export class ExerciseByWorkout {
   time: number
 
   @ManyToOne(type => Exercise, exercise => exercise.exerciseByWorkout, { eager: true })
-  @JoinTable()
   exercise: Exercise;
 
-  @ManyToOne(type => Workout, workout => workout.exerciseByWorkout)
+  @ManyToOne(type => Workout, workout => workout.exerciseByWorkout, { onDelete: 'CASCADE' })
   workout: Workout;
 }

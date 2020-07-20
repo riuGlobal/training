@@ -16,9 +16,9 @@ export class WorkoutsService {
     return await this.workoutRepository.find({ trainee });
   }
 
-  async store (trainee: Trainee, workouts: any[]): Promise<Workout[]> {
-    const wo = [];
-    await workouts.forEach(async workoutDto => {
+  async store (trainee: Trainee, workoutsDto: any[]): Promise<Workout[]> {
+    const workouts = [];
+    await workoutsDto.forEach(async workoutDto => {
       let workout = new Workout();
       workout.exerciseByWorkout = [];
       await workoutDto.exercises.forEach((exercise, index: number) => {
@@ -32,10 +32,10 @@ export class WorkoutsService {
       });
 
       workout = { ...workoutDto, ...workout, trainee };
-      wo.push(workout);
+      workouts.push(workout);
     });
 
-    return (await this.workoutRepository.save(wo));
+    return (await this.workoutRepository.save(workouts));
   }
 
   async update (id: number, workout: Workout): Promise<boolean> {
@@ -43,6 +43,7 @@ export class WorkoutsService {
   }
 
   async destroy (id: number): Promise<boolean> {
-    return (await this.workoutRepository.delete(id)).affected > 0;
+    const workout = await this.workoutRepository.findOne(id);
+    return (await this.workoutRepository.remove([workout])).length > 0;
   }
 }
