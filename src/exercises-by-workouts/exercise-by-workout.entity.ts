@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinTable } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { Exercise } from 'src/exercises/exercise.entity';
 import { Workout } from 'src/workouts/workout.entity';
 

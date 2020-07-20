@@ -17,7 +17,7 @@ export class WorkoutsController {
   }
 
   @Post()
-  async store (@Header('uid', new RecordPipe<Trainee>(Trainee)) trainee: Trainee, @Body() workouts: any[]): Promise<Workout[]> {
+  async store (@Header('uid', new RecordPipe<Trainee>(Trainee)) trainee: Trainee, @Body() workouts: Workout[]): Promise<Workout[]> {
     return await this.workoutService.store(trainee, workouts);
   }
 
