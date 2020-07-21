@@ -23,9 +23,9 @@ export class ExerciseByWorkout {
   @Column()
   time: number
 
-  @ManyToOne(type => Exercise, exercise => exercise.exerciseByWorkout, { eager: true })
+  @ManyToOne(type => Exercise, exercise => exercise.exerciseByWorkout, { eager: true, nullable: false })
   exercise: Exercise;
 
-  @ManyToOne(type => Workout, workout => workout.exerciseByWorkout, { onDelete: 'CASCADE' })
+  @ManyToOne(type => Workout, workout => workout.exerciseByWorkout, { onDelete: 'CASCADE', nullable: false })
   workout: Workout;
 }
