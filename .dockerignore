@@ -1,4 +1,4 @@
-# NPM dependencies 
+# NPM dependencies
 node_modules
 
 # Git
@@ -11,9 +11,9 @@ Dockerfile
 # Other
 .idea
 .vscode
-.env 
+.env
 
-# Typescript 
+# Typescript
 dist
 
 README.md

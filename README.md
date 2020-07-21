@@ -5,7 +5,7 @@ Microservice for training
 
 ## Instruction
 
-npm install 
+npm install
 
 npm run start
 
