@@ -9,16 +9,19 @@ export class Workout {
   id: number;
 
   @Column({
+    nullable: true,
     type: 'date'
   })
   startedAtDate: Date;
 
   @Column({
+    nullable: true,
     type: 'time'
   })
   startedAtTime: Date;
 
   @Column({
+    nullable: true,
     type: 'enum',
     enum: PeriodOfTimeOfDay
   })
