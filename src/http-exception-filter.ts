@@ -10,13 +10,13 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const status = exception.getStatus();
 
     const responseException: Record<string, unknown> = exception.getResponse() as Record<string, unknown>;
-
     response
       .status(status)
       .json({
         statusCode: status,
         error: exception.message,
-        ...(!!responseException?.error) && { message: responseException.error }
+        ...(!!responseException?.error) && { message: responseException.error },
+        ...!(responseException?.message === exception.message) && { note: responseException.message }
       });
   }
 }
