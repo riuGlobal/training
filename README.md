@@ -3,12 +3,6 @@
 
 Microservice for training
 
-## Instructions
-
-npm install
-
-npm run start
-
 ## Running the app
 
 First run 
