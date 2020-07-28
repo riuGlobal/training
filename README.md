@@ -5,6 +5,12 @@ Microservice for training
 
 ## Running the app
 
+First run 
+
+```npm install```
+
+Then: 
+
 ```bash
 # development
 $ npm run start
