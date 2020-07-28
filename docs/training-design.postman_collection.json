@@ -1,0 +1,2371 @@
+{
+	"info": {
+		"_postman_id": "b31eb488-832c-4e35-81b3-dcb65c9fd9ef",
+		"name": "training-design",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Trainees-users",
+			"item": [
+				{
+					"name": "List trainee",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "uid",
+								"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/training/trainees",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"training",
+								"trainees"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List trainee. 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "uid",
+										"type": "text",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/training/trainees",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainees"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"uid\": \"Da9Buz2GBzTOAjUh7EQGvk5NrnW2\",\n    \"isActive\": true\n}"
+						},
+						{
+							"name": "List trainee. Trainee doesn't exist. 404 Not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "An uid that doesnt exist",
+										"key": "uid",
+										"type": "text",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/training/trainees",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainees"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n\t\"statusCode\": 404,\n\t\"message\": \"Not Found\",\n\t\"error\": \"User with id not found\"\n}"
+						},
+						{
+							"name": "List trainee. No uid. 403 Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "uid",
+										"type": "text",
+										"value": "",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{host}}/training/trainees",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainees"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 403,\n  \"message\": \"Forbidden resource\",\n  \"error\": \"No uid header\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Store trainee",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {}
+						},
+						"url": {
+							"raw": "{{host}}/training/trainees",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"training",
+								"trainees"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Store trainee. No uid. 422 Unprocessable Entity.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "uid",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{host}}/training/trainees",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainees"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n\t\"statusCode\":\"422\",\n\t\"message\":\"Unprocessable Entity\",\n\t\"error\": \"No uid header\"\n}"
+						},
+						{
+							"name": "Store trainee. 200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "uid",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/training/trainees",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainees"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"uid\": \"Da9Buz2GBzTOAjUh7EQGvk5NrnW2\",\n    \"isActive\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit trainee",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "uid",
+								"type": "text",
+								"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {}
+						},
+						"url": {
+							"raw": "{{host}}/training/trainees/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"training",
+								"trainees",
+								""
+							]
+						},
+						"description": "|field|type|\n|--|--|\n|isActive|boolean|"
+					},
+					"response": [
+						{
+							"name": "Edit trainee. No uid. 403",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "uid",
+										"type": "text",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"isActive\": false\n}"
+								},
+								"url": {
+									"raw": "{{host}}/training/trainees/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainees",
+										""
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 403,\n  \"message\": \"Forbidden resource\"\n}"
+						},
+						{
+							"name": "Edit trainee. Trainee doesn't exist. 404 Not found",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "uid",
+										"type": "text",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"isActive\": false\n}"
+								},
+								"url": {
+									"raw": "{{host}}/training/trainees/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainees",
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Edit trainee. 200",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "uid",
+										"type": "text",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"isActive\": false\n}"
+								},
+								"url": {
+									"raw": "{{host}}/training/trainees/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainees",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"uid\": \"Da9Buz2GBzTOAjUh7EQGvk5NrnW2\",\n    \"isActive\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete trainee",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "uid",
+								"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/training/trainees/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"training",
+								"trainees",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete trainee.  200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "uid",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/training/trainees/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainees",
+										""
+									],
+									"query": [
+										{
+											"key": "",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"id\": \"Da9Buz2GBzTOAjUh7EQGvk5NrnW2\",\n    \"isActive\": false\n}"
+						},
+						{
+							"name": "Delete trainee. Trainee does't exist. 404 Not found.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "uid",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/training/trainees/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainees",
+										""
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Delete trainee. No uid. 403 Forbidden",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "uid",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{host}}/training/trainees/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainees",
+										""
+									],
+									"query": [
+										{
+											"key": "",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Forbidden resource\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reactivate",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "uid",
+								"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/training/trainees/reactivate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"training",
+								"trainees",
+								"reactivate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Exercises",
+			"item": [
+				{
+					"name": "List exercise",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/training/exercises?queryName",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"training",
+								"exercises"
+							],
+							"query": [
+								{
+									"key": "queryName",
+									"value": null,
+									"description": "partial name"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List exercise. Inexistant query parameter querynames. 400 Bad request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/training/exercises?querynames",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"exercises"
+									],
+									"query": [
+										{
+											"key": "querynames",
+											"value": null,
+											"description": "partial name"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Bad Request\",\n    \"error\":{\n    \t\"querynames\":\"Query parameter: querynames doesn't exist.\"\n    }\n}"
+						},
+						{
+							"name": "List exercise. 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/training/exercises",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"exercises"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n        \"designation\": \"designation1\",\n        \"description\": \"description1\"\n    },\n    {\n        \"designation\": \"designation2\",\n        \"description\": \"description2\"\n    }\n]"
+						},
+						{
+							"name": "List exercise. Using query. 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/training/exercises?queryName",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"exercises"
+									],
+									"query": [
+										{
+											"key": "queryName",
+											"value": null,
+											"description": "partial name"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n        \"designation\": \"designation1\",\n        \"description\": \"description1\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Store exercise",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"designation\": \"designation1\",\n        \"description\": \"description1\"\n    }, \n    {\n    \t\"designation\": \"designation2\",\n    \t\"description\": \"description2\"\n    }\n]",
+							"options": {}
+						},
+						"url": {
+							"raw": "{{host}}/training/exercises",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"training",
+								"exercises"
+							]
+						},
+						"description": "|constraints|field|type|\n|--|--|--|\n|**required** </br> **unique**| designation| `string`|\n|-|description|`string`|"
+					},
+					"response": [
+						{
+							"name": "Store exercise. Validation error. 422 Unprocessable Entity.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"description\": \"description1\"\n    }, \n    {\n    \t\"designation\": \"designation2\",\n    \t\"description\": \"description2\"\n    }\n]"
+								},
+								"url": {
+									"raw": "{{host}}/training/exercises",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"exercises"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"422\",\n    \"message\": \"Unprocessable Entity\",\n    \"error\": \"Exercise 1.  Field designation is required\"\n}"
+						},
+						{
+							"name": "Store exercise. 200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"designation\": \"designation1\",\n        \"description\": \"description1\"\n    }, \n    {\n    \t\"designation\": \"designation2\",\n    \t\"description\": \"description2\"\n    }\n]"
+								},
+								"url": {
+									"raw": "{{host}}/training/exercises",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"exercises"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n    \t\"id\": 1,\n        \"designation\": \"designation1\",\n        \"description\": \"description1\"\n    }, \n    {\n    \t\"id\": 2,\n    \t\"designation\": \"designation2\",\n    \t\"description\": \"description2\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Edit excersice",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"designation\": \"designation1\",\n    \"description\": \"description1\"\n}",
+							"options": {}
+						},
+						"url": {
+							"raw": "{{host}}/training/exercises/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"training",
+								"exercises",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"description": "|constraints|field|type|\n|--|--|--|\n|**required** </br> **unique**| designation| `string`|\n|-|description|`string`|"
+					},
+					"response": [
+						{
+							"name": "Edit excersice. Unknown field 400 ",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"designation\": \"designation1\",\n    \"description\": \"description1\",\n    \"unknownField\": \"unknownField1\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}/training/exercises/:id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"exercises",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Bad Request\",\n    \"error\": {\n        \"unknownField\": \"Unknow field.\"\n    }\n}"
+						},
+						{
+							"name": "Edit excersice. 200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"designation\": \"designation1\",\n    \"description\": \"description1\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}/training/exercises/:id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"exercises",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n\t\"id\": 1,\n    \"designation\": \"designation1\",\n    \"description\": \"description1\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete exercise",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/training/exercises/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"training",
+								"exercises",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "aef4d6e2-8b84-442a-a562-733191bbf0f7",
+									"key": "id",
+									"value": "",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete exercise. 404 Not found.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/training/exercises/:id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"exercises",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Delete exercise. 200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/training/exercises/:id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"exercises",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n\t\"id\": 1,\n\t\"designation\": \"designation1\",\n\t\"description\": \"description1\",\n\t\"isDelete\": true\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Workouts",
+			"item": [
+				{
+					"name": "List workouts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "uid",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/training/trainee/workouts/?startDate&endDate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"training",
+								"trainee",
+								"workouts",
+								""
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": null
+								},
+								{
+									"key": "endDate",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List workouts.  Using startDate and endDate. 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "uid",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/training/trainee/workouts/?startDate=2020-01-12&endDate=2020-01-12",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainee",
+										"workouts",
+										""
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": "2020-01-12"
+										},
+										{
+											"key": "endDate",
+											"value": "2020-01-12"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"exerciseSet\": [\n            {\n                \"name\": \"name-example-1\",\n                \"description\": \"description-1\"\n            },\n            {\n                \"name\": \"name-example-2\",\n                \"description\": \"description-2\"\n            }\n        ],\n        \"time\": \"11:00\",\n        \"date\": \"2020-01-12\",\n        \"periodOfTimeOfDay\": \"MORNING\"\n    }\n]\n"
+						},
+						{
+							"name": "List workouts. Inexistant query parameter. 400",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "uid",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/training/trainee/workouts/?unknownQueryParameter",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainee",
+										"workouts",
+										""
+									],
+									"query": [
+										{
+											"key": "unknownQueryParameter",
+											"value": null
+										},
+										{
+											"key": "end-date",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Bad Request\",\n    \"error\": {\n        \"unknownQueryParameter\": \"Query parameter: querynames doesn't exist.\"\n    }\n}"
+						},
+						{
+							"name": "List workouts. 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "uid",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/training/trainee/workouts/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainee",
+										"workouts",
+										""
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n    \t\"id\": 1,\n        \"exerciseSet\": [\n            {\n            \t\"id\":  1,\n                \"name\": \"name-example-1\",\n                \"description\": \"description-1\"\n            },\n            {\n            \t\"id\": 2,\n                \"name\": \"name-example-2\",\n                \"description\": \"description-2\"\n            }\n        ],\n        \"time\": \"11:00\",\n        \"date\": \"2020-01-12\",\n        \"periodOfTimeOfDay\": \"MORNING\"\n    },\n\t{\n\t\t\"id\": 2,\n\t    \"exerciseSet\": [\n\t        {\n\t        \t\"id\": 1,\n\t            \"name\": \"name-example-1\",\n\t            \"description\": \"description-1\"\n\t        },\n\t        {\n\t        \t\"id\": 2,\n\t            \"name\": \"name-example-2\",\n\t            \"description\": \"description-2\"\n\t        }\n\t    ],\n\t    \"time\": \"11:00\",\n\t    \"date\": \"2020-01-13\",\n\t    \"periodOfTimeOfDay\": \"MORNING\"\n\t}\n]"
+						},
+						{
+							"name": "List workouts.  No uid header. 403 Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "uid",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{host}}/training/trainee/workouts/?startDate&endDate",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainee",
+										"workouts",
+										""
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": null
+										},
+										{
+											"key": "endDate",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 403,\n    \"message\": \"Forbidden resource\",\n    \"error\": \"No uid header\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Store workouts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "uid",
+								"type": "text",
+								"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n\t{\n\t\t\"excersices\": [\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"reps\": 31\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"id\": 2,\n\t\t\t\t\"reps\": 31\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"id\": 3,\n\t\t\t\t\"reps\": 31\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"id\": 4,\n\t\t\t\t\"reps\": 100\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"reps\": 42\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"id\": 2,\n\t\t\t\t\"reps\": 31\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"id\": 3,\n\t\t\t\t\"reps\": 31\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"id\": 4,\n\t\t\t\t\"reps\": 100\n\t\t\t}\n\t\t],\n\t\t\"time\": \"11:00\",\n\t\t\"date\": \"2020-01-12\",\n\t\t\"periodOfTimeOfDay\": \"MORNING\"\n\t}\n]",
+							"options": {}
+						},
+						"url": {
+							"raw": "{{host}}/training/trainee/workouts",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"training",
+								"trainee",
+								"workouts"
+							]
+						},
+						"description": "|constraints|field|type|\n|--|--|--|\n|**required** <br>  in:  <MORNING\\|AFTERNOON\\|EVENING\\|DONT-REMEMBER> |periodOfTimeOfDay| `string`|\n|**optional** <br> format: hh:mm |time|`string`|\n|**required** <br> Not empty|exerciseSet|`array`|\n|**required** <br> format: yyyy-mm-dd|date|`string`|\n\nunique key: date + periodOfTimeOfDay"
+					},
+					"response": [
+						{
+							"name": "Store workouts. 200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "uid",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{\n\t\t\"exerciseSet\" : [1,2],\n\t\t\"time\": \"11:00\",\n\t\t\"date\": \"2020-01-12\",\n\t\t\"periodOfTimeOfDay\": \"MORNING\"\n\t}\t\n]"
+								},
+								"url": {
+									"raw": "{{host}}/training/trainee/workouts",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainee",
+										"workouts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n    \t\"id\": 1,\n        \"exerciseSet\": [\n            {\n            \t\"id\": 1,\n                \"name\": \"name-example-1\",\n                \"description\": \"description-1\"\n            },\n            {\n            \t\"id\": 2,\n                \"name\": \"name-example-2\",\n                \"description\": \"description-2\"\n            }\n        ],\n        \"time\": \"11:00\",\n        \"date\": \"2020-01-12\",\n        \"periodOfTimeOfDay\": \"MORNING\"\n    }\n]"
+						},
+						{
+							"name": "Store workouts. Validation error 422 Unprocessable entity",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "uid",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{\n\t\t\"exerciseSet\" : [1,2],\n\t\t\"time\": \"11:00\",\n\t\t\"periodOfTimeOfDay\": \"MORNING\"\n\t}\t\n]"
+								},
+								"url": {
+									"raw": "{{host}}/training/trainee/workouts",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainee",
+										"workouts"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"422\",\n    \"message\": \"Unprocessable Entity\",\n    \"error\": \"Record 1. Field required: date\"\n}"
+						},
+						{
+							"name": "Store workouts. No uid. 403 Forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "uid",
+										"type": "text",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{\n\t\t\"exerciseSet\" : [1,2],\n\t\t\"time\": \"11:00\",\n\t\t\"date\": \"2020-01-12\",\n\t\t\"periodOfTimeOfDay\": \"MORNING\"\n\t}\t\n]"
+								},
+								"url": {
+									"raw": "{{host}}/training/trainee/workouts",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainee",
+										"workouts"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 403,\n    \"message\": \"Forbidden resource\",\n    \"error\": \"No uid header\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit workouts",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "uid",
+								"type": "text",
+								"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"exerciseSet\": [\n        1,\n        2\n    ],\n    \"time\": \"11:00\",\n    \"date\": \"2020-01-12\",\n    \"periodOfTimeOfDay\": \"MORNING\"\n}",
+							"options": {}
+						},
+						"url": {
+							"raw": "{{host}}/training/trainee/workouts/:workoutId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"training",
+								"trainee",
+								"workouts",
+								":workoutId"
+							],
+							"variable": [
+								{
+									"key": "workoutId",
+									"value": "1",
+									"type": "string"
+								}
+							]
+						},
+						"description": "|constraints|field|type|\n|--|--|--|\n|**required** <br>  in:  <MORNING\\|AFTERNOON\\|EVENING\\|DONT-REMEMBER> |periodOfTimeOfDay| `string`|\n|**optional** <br> format: hh:mm |time|`string`|\n|**required** <br> Not empty|exerciseSet|`array`|\n|**required** <br> format: yyyy-mm-dd|date|`string`|\n\nunique key: date + periodOfTimeOfDay"
+					},
+					"response": [
+						{
+							"name": "Edit workouts. 403 Forbidden",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "uid",
+										"type": "text",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"exerciseSet\": [\n        1,\n        2\n    ],\n    \"time\": \"11:00\",\n    \"date\": \"2020-01-12\",\n    \"periodOfTimeOfDay\": \"MORNING\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}/training/trainee/workouts/:workoutId",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainee",
+										"workouts",
+										":workoutId"
+									],
+									"variable": [
+										{
+											"key": "workoutId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 403,\n    \"message\": \"Forbidden resource\",\n    \"error\": \"No uid header\"\n}"
+						},
+						{
+							"name": "Edit workouts. 400 Bad request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "uid",
+										"type": "text",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"exerciseSet\": [\n        1,\n        2\n    ],\n    \"time\": \"11:00\",\n    \"date\": \"2020-01-12\",\n    \"periodOfTimeOfDay\": \"MORNING\",\n    \"unknownField\":\"unknownField1\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}/training/trainee/workouts/:workoutId",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainee",
+										"workouts",
+										":workoutId"
+									],
+									"variable": [
+										{
+											"key": "workoutId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Bad Request\",\n    \"error\": {\n        \"unknownField\": \"Unknow field.\"\n    }\n}"
+						},
+						{
+							"name": "Edit workouts. 200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "uid",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"exerciseSet\": [\n        1,\n        2\n    ],\n    \"time\": \"11:00\",\n    \"date\": \"2020-01-12\",\n    \"periodOfTimeOfDay\": \"MORNING\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}/training/trainee/workouts/:workoutId",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainee",
+										"workouts",
+										":workoutId"
+									],
+									"variable": [
+										{
+											"key": "workoutId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n\t\"id\": 1,\n\t\"exerciseSet\" : [1,2],\n\t\"time\": \"11:00\",\n\t\"date\": \"2020-01-12\",\n\t\"periodOfTimeOfDay\": \"MORNING\"\n}\t"
+						}
+					]
+				},
+				{
+					"name": "Delete workouts",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "uid",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/training/trainee/workouts/:workoutId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"training",
+								"trainee",
+								"workouts",
+								":workoutId"
+							],
+							"variable": [
+								{
+									"key": "workoutId",
+									"value": "",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete workouts. 200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "uid",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/training/trainee/workouts/:workoutId",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainee",
+										"workouts",
+										":workoutId"
+									],
+									"variable": [
+										{
+											"key": "workoutId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n\t\"id\": 1,\n    \"exerciseSet\": [\n        1,\n        2\n    ],\n    \"time\": \"11:00\",\n    \"date\": \"2020-01-12\",\n    \"periodOfTimeOfDay\": \"MORNING\",\n    \"isDelete\": true\n}"
+						},
+						{
+							"name": "Delete workouts. User doesn't exist. 404 Not found.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "uid",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/training/trainee/workouts/:workoutId",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainee",
+										"workouts",
+										":workoutId"
+									],
+									"variable": [
+										{
+											"key": "workoutId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Delete workouts. No uid. 403 Forbidden",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "uid",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/training/trainee/workouts/:workoutId",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"training",
+										"trainee",
+										"workouts",
+										":workoutId"
+									],
+									"variable": [
+										{
+											"key": "workoutId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Forbidden resource\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Statistics",
+			"item": [
+				{
+					"name": "exercise",
+					"item": [
+						{
+							"name": "Get statistics trainee exercise reps total",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "uid",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/statistics/trainee/exercise/:exerciseId/reps/total?startDate&endDate",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"statistics",
+										"trainee",
+										"exercise",
+										":exerciseId",
+										"reps",
+										"total"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": null
+										},
+										{
+											"key": "endDate",
+											"value": null
+										},
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "exerciseId",
+											"value": "",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get statistics trainee exercise reps total. No user found 404 ",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "uid",
+												"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/statistics/trainee/exercise/:exerciseId/reps/total?startDate&endDate",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"statistics",
+												"trainee",
+												"exercise",
+												":exerciseId",
+												"reps",
+												"total"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": null
+												},
+												{
+													"key": "endDate",
+													"value": null
+												}
+											],
+											"variable": [
+												{
+													"key": "exerciseId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Not Found\",\n    \"error\": {\n    \t\"uid\": \"User not found with uid Da9Buz2GBzTOAjUh7EQGvk5NrnW2\"\n    }\n}"
+								},
+								{
+									"name": "Get statistics trainee exercise reps total. No exercise. 404",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "uid",
+												"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/statistics/trainee/exercise/:exerciseId/reps/total?startDate&endDate",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"statistics",
+												"trainee",
+												"exercise",
+												":exerciseId",
+												"reps",
+												"total"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": null
+												},
+												{
+													"key": "endDate",
+													"value": null
+												}
+											],
+											"variable": [
+												{
+													"key": "exerciseId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Not Found\",\n    \"error\": {\n        \"exercise\": \"not found\"\n    }\n}"
+								},
+								{
+									"name": "Get statistics trainee exercise reps total. Unknowk field 400 Bad request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "uid",
+												"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/statistics/trainee/exercise/:exerciseId/reps/total?startDate&endDate&unkownfield=",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"statistics",
+												"trainee",
+												"exercise",
+												":exerciseId",
+												"reps",
+												"total"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": null
+												},
+												{
+													"key": "endDate",
+													"value": null
+												},
+												{
+													"key": "unkownfield",
+													"value": ""
+												}
+											],
+											"variable": [
+												{
+													"key": "exerciseId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Bad Request\",\n    \"error\": {\n        \"unkownfield\": \"Query parameter: unkownfield is unknown.\"\n    }\n}"
+								},
+								{
+									"name": "Get statistics trainee exercise reps total. Using startDate and endDate. 200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "uid",
+												"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/statistics/trainee/exercise/:exerciseId/reps/total?startDate&endDate",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"statistics",
+												"trainee",
+												"exercise",
+												":exerciseId",
+												"reps",
+												"total"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": null
+												},
+												{
+													"key": "endDate",
+													"value": null
+												}
+											],
+											"variable": [
+												{
+													"key": "exerciseId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n\t\"repsTotal\": 100\n}"
+								},
+								{
+									"name": "Get statistics trainee exercise reps total. No uid. 403 Forbidden",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "uid",
+												"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/statistics/trainee/exercise/:exerciseId/reps/total?startDate&endDate",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"statistics",
+												"trainee",
+												"exercise",
+												":exerciseId",
+												"reps",
+												"total"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": null
+												},
+												{
+													"key": "endDate",
+													"value": null
+												}
+											],
+											"variable": [
+												{
+													"key": "exerciseId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Forbidden resource\"\n}"
+								},
+								{
+									"name": "200 Get statistics trainee exercise reps total. ",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "uid",
+												"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/statistics/trainee/exercise/:exerciseId/reps/total",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"statistics",
+												"trainee",
+												"exercise",
+												":exerciseId",
+												"reps",
+												"total"
+											],
+											"query": [
+												{
+													"key": "start-date",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "end-date",
+													"value": null,
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "exerciseId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n\t\"repsTotal\" : 100 \n}"
+								}
+							]
+						},
+						{
+							"name": "Get statistics   trainee exercise reps avg",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "uid",
+										"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/statistics/trainee/exercise/:exerciseId/reps/avg?startDate&endDate",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"statistics",
+										"trainee",
+										"exercise",
+										":exerciseId",
+										"reps",
+										"avg"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": null
+										},
+										{
+											"key": "endDate",
+											"value": null
+										}
+									],
+									"variable": [
+										{
+											"key": "exerciseId",
+											"value": "",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "404 Not found. User not found. Get statistics   trainee exercise reps avg",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "uid",
+												"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/statistics/trainee/exercise/:exerciseId/reps/avg?startDate&endDate",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"statistics",
+												"trainee",
+												"exercise",
+												":exerciseId",
+												"reps",
+												"avg"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": null
+												},
+												{
+													"key": "endDate",
+													"value": null
+												}
+											],
+											"variable": [
+												{
+													"key": "exerciseId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Not Found\",\n    \"error\": {\n        \"uid\": \"User not found with uid: Da9Buz2GBzTOAjUh7EQGvk5NrnW2\"\n    }\n}"
+								},
+								{
+									"name": "200. Get statistics   trainee exercise reps avg",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "uid",
+												"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/statistics/trainee/exercise/:exerciseId/reps/avg",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"statistics",
+												"trainee",
+												"exercise",
+												":exerciseId",
+												"reps",
+												"avg"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "endDate",
+													"value": null,
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "exerciseId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"repsTotal\": 100\n}"
+								},
+								{
+									"name": "403 Forbidden. Get statistics trainee exercise reps avg",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "uid",
+												"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": {
+											"raw": "{{host}}/statistics/trainee/exercise/:exerciseId/reps/avg?startDate&endDate",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"statistics",
+												"trainee",
+												"exercise",
+												":exerciseId",
+												"reps",
+												"avg"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": null
+												},
+												{
+													"key": "endDate",
+													"value": null
+												}
+											],
+											"variable": [
+												{
+													"key": "exerciseId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Forbidden resource\",\n    \"error\": {\n    \t\"uid\": \"required\"\n    }\n}"
+								},
+								{
+									"name": "400 Bad request. Unknown query parameter. Get statistics   trainee exercise reps avg",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "uid",
+												"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/statistics/trainee/exercise/:exerciseId/reps/avg?startDate&endDate",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"statistics",
+												"trainee",
+												"exercise",
+												":exerciseId",
+												"reps",
+												"avg"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": null
+												},
+												{
+													"key": "endDate",
+													"value": null
+												}
+											],
+											"variable": [
+												{
+													"key": "exerciseId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Bad Request\",\n    \"error\": {\n        \"unkownfield\": \"Query parameter is unknown.\"\n    }\n}"
+								},
+								{
+									"name": "404. No exercise found. Get statistics   trainee exercise reps avg",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "uid",
+												"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/statistics/trainee/exercise/:exerciseId/reps/avg?startDate&endDate",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"statistics",
+												"trainee",
+												"exercise",
+												":exerciseId",
+												"reps",
+												"avg"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": null
+												},
+												{
+													"key": "endDate",
+													"value": null
+												}
+											],
+											"variable": [
+												{
+													"key": "exerciseId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Not Found\",\n    \"error\": {\n        \"exercise\": \"Exercise not found with id:\"\n    }\n}"
+								},
+								{
+									"name": "200. Using startDate and endDate. Get statistics  trainee exercise reps avg",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "uid",
+												"value": "Da9Buz2GBzTOAjUh7EQGvk5NrnW2",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/statistics/trainee/exercise/:exerciseId/reps/avg?startDate&endDate",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"statistics",
+												"trainee",
+												"exercise",
+												":exerciseId",
+												"reps",
+												"avg"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": null
+												},
+												{
+													"key": "endDate",
+													"value": null
+												}
+											],
+											"variable": [
+												{
+													"key": "exerciseId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n\t\"repsTotal\" : 50 \n}"
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
