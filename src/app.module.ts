@@ -15,7 +15,8 @@ import { WorkoutsModule } from './workouts/workouts.module';
     TypeOrmModule.forRoot(),
     TraineesModule,
     ExercisesModule,
-    WorkoutsModule
+    WorkoutsModule,
+    ExercisesModule
   ],
   controllers: [AppController],
   providers: [AppService]
