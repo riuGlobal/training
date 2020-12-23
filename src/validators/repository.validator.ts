@@ -1,7 +1,7 @@
 import { PipeTransform, ArgumentMetadata, BadRequestException, Injectable } from '@nestjs/common';
 import { getRepository } from 'typeorm';
 
-// Refactor this ina pipes folder and using classes and extension
+// Refactor this in a pipes folder and using classes and extension
 
 type ExistanceInfo = {
   exists: boolean;
