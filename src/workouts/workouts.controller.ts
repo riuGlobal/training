@@ -13,7 +13,7 @@ export class WorkoutsController {
 
   @Get()
   async show (@Header('uid', new RecordPipe<Trainee>(Trainee)) trainee: Trainee): Promise<Workout[]> {
-    return this.workoutService.show(trainee);
+    return await this.workoutService.show(trainee);
   }
 
   @Post()
