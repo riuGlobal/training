@@ -5,6 +5,7 @@ import { TraineesModule } from './trainees/trainees.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { ExercisesModule } from './exercises/exercises.module';
+import { WorkoutsModule } from './workouts/workouts.module';
 
 @Module({
   imports: [
@@ -13,7 +14,8 @@ import { ExercisesModule } from './exercises/exercises.module';
     }),
     TypeOrmModule.forRoot(),
     TraineesModule,
-    ExercisesModule
+    ExercisesModule,
+    WorkoutsModule
   ],
   controllers: [AppController],
   providers: [AppService]
