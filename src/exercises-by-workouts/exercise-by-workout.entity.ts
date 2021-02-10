@@ -16,7 +16,9 @@ export class ExerciseByWorkout {
   @Column()
   order: number;
 
-  @Column()
+  @Column({
+    nullable: true
+  })
   reps: number
 
   // Time of rep in seconds
