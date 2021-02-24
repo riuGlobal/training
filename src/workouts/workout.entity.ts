@@ -9,10 +9,9 @@ export class Workout {
   id: number;
 
   @Column({
-    nullable: true,
     type: 'date'
   })
-  startedAtDate: Date;
+  date: Date;
 
   @Column({
     nullable: true,
